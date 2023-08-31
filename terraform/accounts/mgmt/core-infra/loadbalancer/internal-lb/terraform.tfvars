@@ -1,0 +1,44 @@
+########  LoadBalancer ########
+
+check_interval_sec      = 5
+timeout_sec             = 2
+healthy_threshold       = 5
+unhealthy_threshold     = 5
+request_path            = "/healthz/ready"
+hc_port                 = 15021
+redirect_response_code  = "MOVED_PERMANENTLY_DEFAULT"
+strip_query             = false
+https_redirect          = true
+affinity_cookie_ttl_sec = "0"
+enable_cdn              = false
+log_config_enable       = false
+sample_rate             = 0
+backend_protocol        = "HTTP"
+session_affinity        = "NONE"
+backend_timeout_sec     = "30"
+balancing_mode          = "RATE"
+max_rate_per_endpoint   = "100"
+capacity_scaler         = "1.0"
+ip_protocol             = "TCP"
+port_range_http         = "80"
+ssl_cert_name           = ["lk-ssl-cert"]
+port_range_https        = "443"
+zone                    = "asia-south2-a"
+
+##### Internal LoadBalancer ####
+int_lb_ip_name                 = "lk-ip-mgmt-lb-internal-as1-01"
+int_lb_ip_type                 = "INTERNAL"
+int_lb_subnet                  = "lk-subnet-mgmt-app-as2"
+int_address                    = "10.40.16.50"
+int_health_check_name          = "lk-hc-mgmt-internal-lb-01"
+int_http_lb_name               = "lk-int-lb-mgmt-k8s-cluster-http-as2"
+int_https_lb_name              = "lk-int-lb-mgmt-k8s-cluster-http-as2"
+int_lb_target_http_proxy_name  = "lk-target-proxy-http-int-lb-01"
+int_backend_name               = "lk-backend-mgmt-int-lb-01"
+int_backend_protocol           = "HTTP"
+int_neg_name                   = "projects/lk-mgmt-apps/zones/asia-south1-a/networkEndpointGroups/lk-mgmt-neg-pvt-istio-gw"
+int_load_balancing_scheme      = "INTERNAL_MANAGED"
+int_frontend_http_name         = "lk-fr-mgmt-http-int-01"
+int_allow_global_access        = "true"
+int_lb_target_https_proxy_name = "lk-target-proxy-https-int-lb-01"
+int_frontend_https_name        = "lk-fr-mgmt-https-int-01"

@@ -1,0 +1,20 @@
+module "cloud_armor_policy" {
+  source                      = "../../../../modules/cloud-armor"
+  project                     = var.project
+  labels                      = var.labels
+  recaptcha_display_name      = var.recaptcha_display_name
+  integration_type            = var.integration_type
+  allow_all_domains           = var.allow_all_domains
+  allowed_domains             = var.allowed_domains
+  cloud_armor_policy_name     = var.cloud_armor_policy_name
+  enable_layer_7_ddos_defense = var.enable_layer_7_ddos_defense
+  deny_rule_action            = var.deny_rule_action
+  deny_rule_description       = var.deny_rule_description
+  deny_rule_priority          = var.deny_rule_priority
+  deny_rule_expression        = var.deny_rule_expression
+  default_rule_action         = var.default_rule_action
+  default_rule_priority       = var.default_rule_priority
+  default_rule_versioned_expr = var.default_rule_versioned_expr
+  default_rule_src_ip_ranges  = var.default_rule_src_ip_ranges
+  default_rule_description    = var.default_rule_description
+}
